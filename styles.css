@@ -183,13 +183,17 @@ h2{font-family:LocalDisplay,'Arial Black',Arial,sans-serif;font-weight:900;font-
 .contact-details .icon{width:17px;height:17px}
 .copy-phone{border:0;background:none;padding:8px 0;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600}
 .copy-phone:hover{text-decoration:underline}
-.footer{padding:33px 0}
+.footer{padding:33px 0 calc(96px + env(safe-area-inset-bottom))}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
 .footer-inner>.brand{transform:scale(.85);transform-origin:left center}
 .footer-inner>span{font-size:9px;line-height:1.7;color:var(--muted)}
 .back-top{font-size:10px;font-weight:700}
-.mobile-callbar{display:none}
-.toast{position:fixed;z-index:150;bottom:30px;left:50%;transform:translate(-50%,20px);background:var(--deep);color:#fffdef;box-shadow:0 8px 30px #102c2133;padding:16px 23px;border-radius:6px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;max-width:calc(100% - 32px);text-align:center}
+.floating-call{position:fixed;right:calc(24px + env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));z-index:45;display:grid;place-items:center;width:60px;height:60px;border:1px solid var(--deep);border-radius:50%;background:var(--yellow);color:var(--deep);box-shadow:0 5px 16px #102c2133;transition:background .2s,transform .2s}
+.floating-call .icon{width:28px;height:28px;stroke-width:2}
+.floating-call:hover{background:#ffed66}
+.floating-call:active{transform:scale(.94)}
+.floating-call:focus-visible{outline:2px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px var(--deep)}
+.toast{position:fixed;z-index:150;bottom:calc(96px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,20px);background:var(--deep);color:#fffdef;box-shadow:0 8px 30px #102c2133;padding:16px 23px;border-radius:6px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;max-width:calc(100% - 32px);text-align:center}
 .toast.visible{opacity:1;transform:translate(-50%,0)}
 .service-dialog{background:var(--paper);border:1px solid #d4ddcb;border-radius:12px;max-width:490px;width:calc(100% - 32px);padding:0;color:var(--ink);max-height:calc(100dvh - 32px)}
 .service-dialog::backdrop{background:#0d231dc4;backdrop-filter:blur(5px)}
@@ -432,18 +436,14 @@ h2{font-size:36px;letter-spacing:-1.9px}
 .contact-details{flex-direction:column;align-items:flex-start;gap:17px;padding-top:23px}
 .contact-details>div,.copy-phone{font-size:11px}
 .copy-phone{padding:3px 0}
-.footer{padding:26px 0 calc(107px + env(safe-area-inset-bottom))}
+.footer{padding:26px 0 calc(84px + env(safe-area-inset-bottom))}
 .footer-inner{display:flex;flex-wrap:wrap;gap:18px}
 .footer-inner>.brand{transform:none}
 .footer-inner>.brand .brand-type{font-size:13px}
 .footer-inner>span{order:3;width:100%;font-size:9px}
 .back-top{margin-left:auto;font-size:10px}
-.mobile-callbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:45;background:var(--deep);padding:11px 18px calc(11px + env(safe-area-inset-bottom));align-items:center;justify-content:space-between;gap:14px;box-shadow:0 -3px 18px #102c2112}
-.mobile-callbar>span{display:flex;gap:8px;align-items:center;color:#e1e8d7;font-size:8px;letter-spacing:1px}
-.mobile-callbar .status-dot{background:var(--yellow);width:5px;height:5px;box-shadow:0 0 0 4px #f4e44f15}
-.mobile-callbar .button{min-height:43px;padding:12px 19px;font-size:12px;gap:10px}
-.mobile-callbar .icon{width:17px;height:17px}
-.toast{bottom:calc(91px + env(safe-area-inset-bottom));font-size:12px;width:max-content}
+.floating-call{right:calc(16px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));width:56px;height:56px}
+.toast{bottom:calc(84px + env(safe-area-inset-bottom));font-size:12px;width:max-content}
 .dialog-content{padding:28px}
 .dialog-content h2{font-size:30px}
 .dialog-content .eyebrow{margin-top:17px}
@@ -499,9 +499,6 @@ h2{font-size:31px}
 .contact-circle{width:44px;height:44px}
 .contact-top .eyebrow{font-size:6px}
 .contact-big-phone{letter-spacing:-1.4px}
-.mobile-callbar{padding-left:14px;padding-right:14px}
-.mobile-callbar .button{font-size:11px;padding:12px 14px}
-.mobile-callbar>span{font-size:7px}
 }
 
 @keyframes ribbon-slide{from{transform:translateX(0)}
